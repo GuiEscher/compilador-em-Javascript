@@ -1,7 +1,7 @@
 // Generated from MeuLexer.g4 by ANTLR 4.12.0
 // jshint ignore: start
 import antlr4 from 'antlr4';
-import MeuLexerListener from './MeuLexerListener.js';
+import MeuLexerListener from './MeuLexerListener.mjs';
 const serializedATN = [4,1,8,35,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,1,0,1,0,
 1,0,1,1,1,1,1,1,5,1,15,8,1,10,1,12,1,18,9,1,1,2,1,2,1,2,5,2,23,8,2,10,2,
 12,2,26,9,2,1,3,1,3,1,3,1,3,1,3,3,3,33,8,3,1,3,0,0,4,0,2,4,6,0,2,1,0,2,3,

@@ -23,3 +23,4 @@ LPAREN: '(';
 RPAREN: ')';
 
 WS: [ \t\r\n]+ -> skip;
+
