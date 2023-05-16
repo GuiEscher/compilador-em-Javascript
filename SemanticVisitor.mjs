@@ -59,35 +59,47 @@ import MeuGrammarVisitor from './MeuGrammarVisitor.mjs';
 export default class SemanticVisitor extends MeuGrammarVisitor {
   visitExpr(ctx) {
     let left = this.visit(ctx.term(0));
-    
+
     for (let i = 1; i < ctx.term().length; i++) {
       const op = ctx.getChild(i * 2 - 1).getText();
       const right = this.visit(ctx.term(i));
-      
+
       if (op === '+') {
+        if (typeof left !== 'number' || typeof right !== 'number') {
+          throw new Error("Erro semântico: Operando inválido na expressão, espera-se int");
+        }
         left += right;
       } else if (op === '-') {
+        if (typeof left !== 'number' || typeof right !== 'number') {
+          throw new Error("Erro semântico: Operandos devem ser números na operação -");
+        }
         left -= right;
       }
     }
-    
+
     return left;
   }
 
   visitTerm(ctx) {
     let left = this.visit(ctx.factor(0));
-    
+
     for (let i = 1; i < ctx.factor().length; i++) {
       const op = ctx.getChild(i * 2 - 1).getText();
       const right = this.visit(ctx.factor(i));
-      
+
       if (op === '*') {
+        if (typeof left !== 'number' || typeof right !== 'number') {
+          throw new Error("Erro semântico: Operandos devem ser números na operação *");
+        }
         left *= right;
       } else if (op === '/') {
+        if (typeof left !== 'number' || typeof right !== 'number') {
+          throw new Error("Erro semântico: Operandos devem ser números na operação /");
+        }
         left /= right;
       }
     }
-    
+
     return left;
   }
 
@@ -97,18 +109,18 @@ export default class SemanticVisitor extends MeuGrammarVisitor {
     } else if (ctx.expr()) {
       return this.visit(ctx.expr());
     } else if (ctx.decl()) {
-      console.log('Erro: Uso inválido de declaração');
-      return null;
+      throw new Error("Erro semântico: Uso inválido de declaração");
     }
-    
+
     return null;
   }
 
   visitDecl(ctx) {
-    console.log('Erro: Uso inválido de declaração');
-    return null;
+    const id = ctx.ID().getText();
+    throw new Error(`Erro semântico: Uso inválido de declaração "${id}"`);
   }
 }
+
 
 
 
