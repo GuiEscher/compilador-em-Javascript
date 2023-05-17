@@ -4,7 +4,7 @@ import MeuGrammarParser from './MeuGrammarParser.mjs';
 import SemanticVisitor from './SemanticVisitor.mjs';
 
 // Criar um objeto de entrada para a análise sintática
-const input = "s+3";
+const input = "2+3*@";
 
 // Criar um analisador léxico usando o objeto de entrada
 const chars = new antlr4.InputStream(input);
@@ -35,7 +35,7 @@ try {
   // Realizar a análise semântica
   const result = semanticVisitor.visit(tree);
 
-  console.log('\nResultado:', result, '\n');
+  console.log('\nResultado:', result[0], '\n');
 } catch (error) {
   console.log('\n', error.message, '\n');
 }

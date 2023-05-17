@@ -4,7 +4,7 @@ start: expr EOF;
 
 expr: term ((PLUS | MINUS) term)*;
 
-term: factor ((TIMES | DIV) factor)*;
+term: factor ((MUL | DIV) factor)*;
 
 factor: INTEGER | LPAREN expr RPAREN | decl;
 
@@ -20,7 +20,7 @@ PLUS: '+';
 
 MINUS: '-';
 
-TIMES: '*';
+MUL: '*';
 
 DIV: '/';
 
@@ -40,7 +40,7 @@ visitStart: expr;
 visitExpr: term (op=(PLUS | MINUS) right=term)*;
 
 // Regra de visitante para a regra 'term'
-visitTerm: factor (op=(TIMES | DIV) right=factor)*;
+visitTerm: factor (op=(MUL | DIV) right=factor)*;
 
 // Regra de visitante para a regra 'factor'
 visitFactor: INTEGER | LPAREN expr RPAREN | decl;

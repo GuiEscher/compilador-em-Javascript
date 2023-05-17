@@ -1,8 +1,8 @@
 // Generated from MeuGrammar.g4 by ANTLR 4.12.0
 // jshint ignore: start
 import antlr4 from 'antlr4';
-import MeuGrammarListener from './MeuGrammarListener.mjs';
-import MeuGrammarVisitor from './MeuGrammarVisitor.mjs';
+import MeuGrammarListener from './MeuGrammarListener.js';
+import MeuGrammarVisitor from './MeuGrammarVisitor.js';
 
 const serializedATN = [4,1,10,75,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,
 2,5,7,5,2,6,7,6,2,7,7,7,2,8,7,8,1,0,1,0,1,0,1,1,1,1,1,1,5,1,25,8,1,10,1,
