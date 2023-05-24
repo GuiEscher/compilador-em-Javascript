@@ -4,7 +4,8 @@ import MeuGrammarParser from './MeuGrammarParser.mjs';
 import SemanticVisitor from './SemanticVisitor.mjs';
 
 // Criar um objeto de entrada para a análise sintática
-const input = "2+3*@";
+const input = "variavel x = 2+2.2+3.45*3";
+
 
 // Criar um analisador léxico usando o objeto de entrada
 const chars = new antlr4.InputStream(input);
@@ -31,11 +32,15 @@ console.log('\nÁrvore sintática:', tree.toStringTree(parser.ruleNames));
 // Criar o visitante semântico
 const semanticVisitor = new SemanticVisitor();
 
-try {
+
   // Realizar a análise semântica
   const result = semanticVisitor.visit(tree);
-
   console.log('\nResultado:', result[0], '\n');
-} catch (error) {
-  console.log('\n', error.message, '\n');
-}
+
+  // Obter os tipos dos termos
+const tipos = semanticVisitor.ObtemTipos(tree);
+console.log('Tipos dos termos:', tipos);
+
+
+//PRECISA CORRIGIR - 
+// -> Por algum motivo a analise sintática está dando erro

@@ -59,6 +59,8 @@ export default class MeuGrammarVisitor extends antlr4.tree.ParseTreeVisitor {
 	  return this.visitChildren(ctx);
 	}
 
-
+	ObtemTipos(ctx) {
+		return this.visitChildren(ctx);
+	  }
 
 }
