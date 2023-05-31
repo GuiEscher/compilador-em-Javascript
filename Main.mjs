@@ -4,7 +4,7 @@ import MeuGrammarParser from './MeuGrammarParser.mjs';
 import SemanticVisitor from './SemanticVisitor.mjs';
 
 // Criar um objeto de entrada para a análise sintática
-const input = "variavel x = 2+2.2+3.45*3";
+const input = "variavel x = 2+3+3.5";
 
 
 // Criar um analisador léxico usando o objeto de entrada
